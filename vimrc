@@ -1,3 +1,4 @@
+execute pathogen#infect()
 let mapleader=","
 
 " if you disagree with this you suck
@@ -7,9 +8,6 @@ nnoremap ; :
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
-
-let g:syntastic_cpp_compiler='clang++'
-let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
 
 set nocompatible
 
@@ -72,9 +70,6 @@ command! Release :normal i tagging for release [override_audit]
 
 " terminal colours to 256
 set t_Co=256
-let base16colorspace=256
-colorscheme base16-solarized
-set background=light
 
 " Automatically highlight trailing whitespaces
 2mat ExtraWhiteSpace /\s\+$/
@@ -90,7 +85,7 @@ hi CursorLineNr cterm=bold
 highlight ColorColumn ctermbg=21
 set colorcolumn=81
 
-" change the highlight colorur to be readable
+" change the highlight color to be readable
 highlight Search cterm=NONE ctermfg=black ctermbg=yellow
 
 set ic
@@ -158,15 +153,6 @@ if exists("+showtabline")
     set showtabline=1
     highlight link TabNum Special
 endif
-
-function! CleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        return "\<C-X>\<C-I>"
-    endif
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " toggle between number and relative number
 function! ToggleNumber()
